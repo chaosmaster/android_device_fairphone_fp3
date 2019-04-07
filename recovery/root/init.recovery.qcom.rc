@@ -5,10 +5,18 @@ on fs
     install_keyring
 
     setprop ro.board.platform msm8953
+    start load_drivers
 
 on init
     start hwservicemanager
     start boot-1-0
+
+service load_drivers /sbin/load_drivers.sh
+    oneshot
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
 
 service hwservicemanager /sbin/hwservicemanager
     user root
