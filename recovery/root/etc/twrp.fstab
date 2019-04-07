@@ -1,0 +1,12 @@
+/boot         emmc          /dev/block/bootdevice/by-name/boot           flags=slotselect
+/system       ext4          /dev/block/bootdevice/by-name/system         flags=slotselect
+/system_image emmc          /dev/block/bootdevice/by-name/system         flags=slotselect
+/vendor       ext4          /dev/block/bootdevice/by-name/vendor         flags=slotselect;backup=1
+/vendor_image emmc          /dev/block/bootdevice/by-name/vendor         flags=slotselect
+/data         f2fs          /dev/block/bootdevice/by-name/userdata       flags=fileencryption=ice
+/firmware     ext4          /dev/block/bootdevice/by-name/modem          flags=slotselect;fsflags=ro,nosuid,nodev
+/persist      ext4          /dev/block/bootdevice/by-name/persist        flags=fsflags=noatime,nosuid,nodev,barrier=1
+/misc         emmc          /dev/block/bootdevice/by-name/misc
+
+/external_sd  auto          /dev/block/mmcblk1p1  /dev/block/mmcblk1     flags=display="MicroSD Card";storage;wipeingui;removable
+/usb_otg      auto          /dev/block/sda1       /dev/block/sda         flags=display="USB-OTG";storage;wipeingui;removable
