@@ -11,6 +11,9 @@ on init
     start hwservicemanager
     start boot-1-0
 
+on boot
+    setprop sys.usb.config adb
+
 service load_drivers /sbin/load_drivers.sh
     oneshot
     disabled
