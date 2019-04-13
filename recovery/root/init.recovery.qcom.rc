@@ -2,6 +2,11 @@ on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
+    chmod 0660 /dev/qseecom
+    chown system drmrpc /dev/qseecom
+    chmod 0664 /dev/ion
+    chown system system /dev/ion
+
     install_keyring
 
     setprop ro.board.platform msm8953
@@ -10,9 +15,17 @@ on fs
 on init
     start hwservicemanager
     start boot-1-0
+    start prepdecrypt
 
 on boot
     setprop sys.usb.config adb
+
+service prepdecrypt /sbin/prepdecrypt.sh
+    oneshot
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
 
 service load_drivers /sbin/load_drivers.sh
     oneshot
@@ -28,8 +41,58 @@ service hwservicemanager /sbin/hwservicemanager
     onrestart setprop hwservicemanager.ready false
     seclabel u:r:recovery:s0
 
+service servicemanager /sbin/servicemanager
+    disabled
+    user root
+    group root readproc
+    seclabel u:r:recovery:s0
+    writepid /dev/cpuset/system-background/tasks
+
+# Separate copy needed to use /sbin/linker64 instead of /system/bin/linker64
+service sbinqseecomd /sbin/qseecomd
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
 service boot-1-0 /sbin/android.hardware.boot@1.0-service
     user root
     group root
     disabled
+    seclabel u:r:recovery:s0
+
+service gatekeeper-1-0 /sbin/android.hardware.gatekeeper@1.0-service-qti
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+service keymaster-4-0 /sbin/android.hardware.keymaster@4.0-service-qti
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+on property:crypto.ready=1
+    start sbinqseecomd
+
+on property:vendor.sys.listeners.registered=true
+    start keymaster-4-0
+    start gatekeeper-1-0
+    start servicemanager
+
+# Handled by TWRP
+service keystore /sbin/keystore /tmp/misc/keystore
+    disabled
+    oneshot
+    user root
+    group root drmrpc readproc
+    seclabel u:r:recovery:s0
+    writepid /dev/cpuset/foreground/tasks
+
+service keystore_auth /sbin/keystore_auth
+    disabled
+    oneshot
+    user system
+    group root
     seclabel u:r:recovery:s0
