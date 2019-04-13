@@ -12,7 +12,7 @@ on fs
     setprop ro.board.platform msm8953
     start load_drivers
 
-on init
+on property:drivers.loaded=1
     start hwservicemanager
     start boot-1-0
     start prepdecrypt
