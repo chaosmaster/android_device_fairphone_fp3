@@ -75,3 +75,7 @@ TW_THEME := portrait_hdpi
 TW_USE_TOOLBOX := true
 TW_Y_OFFSET := 110
 TW_H_OFFSET := -110
+
+# Debug flags
+TWRP_INCLUDE_LOGCAT := true
+TARGET_USES_LOGD := true
