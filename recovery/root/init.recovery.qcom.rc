@@ -80,6 +80,11 @@ service ldconfigtxt /sbin/touch /sbin/ld.config.txt
 
 on boot
 	export LD_CONFIG_FILE /sbin/ld.config.txt
+    # save battery by switching to interactive once booted
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
 
 on property:crypto.ready=1
     start sbinqseecomd
