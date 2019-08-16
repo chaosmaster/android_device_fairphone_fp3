@@ -10,9 +10,9 @@ on fs
     install_keyring
 
     setprop ro.board.platform msm8953
-    start load_drivers
+    start load_modules
 
-on property:drivers.loaded=1
+on property:modules.loaded=1
     start hwservicemanager
     start boot-1-0
     start prepdecrypt
@@ -27,7 +27,7 @@ service prepdecrypt /sbin/prepdecrypt.sh
     group root
     seclabel u:r:recovery:s0
 
-service load_drivers /sbin/load_drivers.sh
+service load_modules /sbin/load_modules.sh
     oneshot
     disabled
     user root
