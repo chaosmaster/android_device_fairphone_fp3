@@ -82,5 +82,6 @@ TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 
 # Installer
+AB_OTA_UPDATER := true
 USE_RECOVERY_INSTALLER := true
 RECOVERY_INSTALLER_PATH := device/motorola/river/installer
