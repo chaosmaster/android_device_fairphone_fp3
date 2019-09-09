@@ -2,26 +2,25 @@
 # The filesystem that contains the filesystem checker binary (typically /system) cannot
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
-# mount point   fstype       device                 device2                        flags
-/boot           emmc         /dev/block/bootdevice/by-name/boot           flags=slotselect
-/data           f2fs         /dev/block/bootdevice/by-name/userdata       flags=fileencryption=ice:aes-256-cts
-/misc           emmc         /dev/block/bootdevice/by-name/misc
-/system         ext4         /dev/block/bootdevice/by-name/system         flags=slotselect
-/system_image   emmc         /dev/block/bootdevice/by-name/system         flags=slotselect
-/vendor         ext4         /dev/block/bootdevice/by-name/vendor         flags=backup=1;slotselect;wipeingui
-/vendor_image   emmc         /dev/block/bootdevice/by-name/vendor         flags=backup=1;slotselect
-/efs1           emmc         /dev/block/bootdevice/by-name/modemst1       flags=backup=1;display=EFS
-/efs2           emmc         /dev/block/bootdevice/by-name/modemst2       flags=backup=1;subpartitionof=/efs1
-/persist        ext4         /dev/block/bootdevice/by-name/persist        flags=backup=1;display="Persist"
-/persist2       ext4         /dev/block/bootdevice/by-name/persist2       flags=backup=1;subpartitionof=/persist
-/firmware       ext4         /dev/block/bootdevice/by-name/modem          flags=backup=1;display="Firmware";slotselect
-/fsg            emmc         /dev/block/bootdevice/by-name/fsg            flags=backup=1;display="FSG";slotselect
-/dtbo           emmc         /dev/block/bootdevice/by-name/dtbo           flags=backup=1;display="DTBO";slotselect
-/oem            ext4         /dev/block/bootdevice/by-name/oem            flags=backup=1;display="OEM";slotselect;wipeingui
-/dsp            ext4         /dev/block/bootdevice/by-name/dsp            flags=backup=1;display="DSP";slotselect
-/metadata       emmc         /dev/block/bootdevice/by-name/metadata
-/logo           emmc         /dev/block/bootdevice/by-name/logo           flags=backup=1;display="Boot Logo";slotselect;flashimg=1
-/keymaster      emmc         /dev/block/bootdevice/by-name/keymaster      flags=slotselect
+# mount point   fstype       device                 device2                       flags
+/boot            emmc      /dev/block/bootdevice/by-name/boot                     flags=slotselect
+/data            f2fs      /dev/block/bootdevice/by-name/userdata                 flags=fileencryption=ice:aes-256-cts
+/misc            emmc      /dev/block/bootdevice/by-name/misc
+/system          ext4      /dev/block/bootdevice/by-name/system                   flags=display="System";backup=1;slotselect
+/system_image    emmc      /dev/block/bootdevice/by-name/system                   flags=display="System_IMG";backup=1;slotselect
+/efs1            emmc      /dev/block/bootdevice/by-name/modemst1                 flags=backup=1;display=EFS
+/efs2            emmc      /dev/block/bootdevice/by-name/modemst2                 flags=backup=1;subpartitionof=/efs1
+/persist1        ext4      /dev/block/bootdevice/by-name/persist                  flags=display="Persist1";backup=1
+/persist         ext4      /dev/block/bootdevice/by-name/persist2                 flags=display="Persist2";backup=1
+/firmware        ext4      /dev/block/bootdevice/by-name/modem                    flags=display="Firmware";slotselect
+/fsg             emmc      /dev/block/bootdevice/by-name/fsg                      flags=backup=1;slotselect
+/vendor          ext4      /dev/block/bootdevice/by-name/vendor                   flags=display="Vendor";backup=1;slotselect
+/vendor_image    emmc      /dev/block/bootdevice/by-name/vendor                   flags=display="Vendor_IMG";backup=1;slotselect
+/dsp             ext4      /dev/block/bootdevice/by-name/dsp                      flags=backup=1;display="DSP";slotselect
+#/sbl1            emmc      /dev/block/bootdevice/by-name/sbl1                     flags=backup=1;display="SBL1";slotselect
+/metadata        emmc      /dev/block/bootdevice/by-name/metadata
+/logo            emmc      /dev/block/bootdevice/by-name/logo                     flags=display="Boot logo";backup=1;slotselect
+/keymaster       emmc      /dev/block/bootdevice/by-name/keymaster                flags=slotselect
 
 /external_sd    auto         /dev/block/mmcblk1p1  /dev/block/mmcblk1     flags=display="MicroSD Card";storage;wipeingui;removable
 /usb_otg        auto         /dev/block/sda1       /dev/block/sda         flags=display="USB-OTG";storage;wipeingui;removable
