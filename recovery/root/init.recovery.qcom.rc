@@ -13,7 +13,6 @@ on fs
     start load_modules
 
 on property:modules.loaded=1
-    start hwservicemanager
     start boot-1-0
     start prepdecrypt
 
@@ -89,7 +88,16 @@ on boot
 on property:crypto.ready=1
     start sbinqseecomd
 
+on property:crypto.ready=0
+    stop sbinqseecomd
+    stop keymaster-4-0
+    stop gatekeeper-1-0
+    stop hwservicemanager
+    stop keystore
+    stop servicemanager
+
 on property:vendor.sys.listeners.registered=true
+    start hwservicemanager
     start keymaster-4-0
     start gatekeeper-1-0
     start servicemanager

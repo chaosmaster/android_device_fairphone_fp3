@@ -59,6 +59,13 @@ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
 PRODUCT_COPY_FILES += \
     system/timezone/output_data/iana/tzdata:recovery/root/system_root/usr/share/zoneinfo/tzdata
 
+# Properties for decryption
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.keystore=msm8953 \
+    ro.hardware.gatekeeper=msm8953 \
+    ro.hardware.bootctrl=msm8953 \
+    ro.build.system_root_image=true
+
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := river
 PRODUCT_NAME := omni_river
