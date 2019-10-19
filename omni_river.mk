@@ -65,6 +65,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.bootctrl=msm8953 \
     ro.build.system_root_image=true
 
+# Properties for Adoptable Storage
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.crypto.allow_encrypt_override=true \
+    ro.crypto.volume.filenames_mode=aes-256-cts
+
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := river
 PRODUCT_NAME := omni_river
