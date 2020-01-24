@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-ifneq ($(filter river, $(TARGET_DEVICE)),)
+ifneq ($(filter fp3, $(TARGET_DEVICE)),)
 
 LOCAL_PATH := $(call my-dir)
 

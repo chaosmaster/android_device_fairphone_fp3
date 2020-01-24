@@ -10,9 +10,6 @@ on fs
     install_keyring
 
     setprop ro.board.platform msm8953
-    start load_modules
-
-on property:modules.loaded=1
     start boot-1-0
     start prepdecrypt
 
@@ -20,13 +17,6 @@ on boot
     setprop sys.usb.config adb
 
 service prepdecrypt /sbin/prepdecrypt.sh
-    oneshot
-    disabled
-    user root
-    group root
-    seclabel u:r:recovery:s0
-
-service load_modules /sbin/load_modules.sh
     oneshot
     disabled
     user root
@@ -78,7 +68,7 @@ service ldconfigtxt /sbin/touch /sbin/ld.config.txt
     seclabel u:r:recovery:s0
 
 on boot
-	export LD_CONFIG_FILE /sbin/ld.config.txt
+    export LD_CONFIG_FILE /sbin/ld.config.txt
     # save battery by switching to interactive once booted
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive

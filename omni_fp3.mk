@@ -71,8 +71,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.filenames_mode=aes-256-cts
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := river
-PRODUCT_NAME := omni_river
-PRODUCT_BRAND := motorola
-PRODUCT_MODEL := Moto G7
-PRODUCT_MANUFACTURER := motorola
+PRODUCT_DEVICE := fp3
+PRODUCT_NAME := omni_fp3
+PRODUCT_BRAND := Fairphone
+PRODUCT_MODEL := FP3
+PRODUCT_MANUFACTURER := Fairphone
