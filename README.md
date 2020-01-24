@@ -1,4 +1,4 @@
-TWRP device tree for Motorola g7 (river)
+TWRP device tree for Fairphone 3
 ==================================
 ## Device specifications
 
@@ -10,17 +10,15 @@ GPU     | Adreno 506
 Memory  | 4GB
 Shipped Android Version | 9.0 (Pie)
 Internal Storage | 64GB
-microSD | Up to 1 TB (dedicated slot)
+microSD | Up to 400GB (dedicated slot)
 Battery | 3000 mAh
-Dimensions | 157 x 75.3 x 8 mm
-Display | 2270 x 1080 pixels, 6.2-inch IPS LCD
-Rear Camera  | 12 MP (f/1.8, 1.25µm, PDAF)
-Front Camera | 8 MP 1.12µm, HDR
-
-![Motorola g7](https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g7-1.jpg "Motorola g7")
+Dimensions | 158 x 71.8 x 9.89 mm
+Display | 2270 x 1080 pixels, 5.65-inch IPS LCD
+Rear Camera  | 12 MP (f/1.8, 1/2.55", PDAF)
+Front Camera | 8 MP (f/2.0, 1/4", HDR)
 
 ### Kernel Source
-To Be Released
+https://code.fairphone.com/projects/fairphone-3-gpl.html
 
 ### Build with TWRP installer
 To auotomatic make the twrp installer, 
@@ -34,9 +32,8 @@ https://gerrit.omnirom.org/#/c/android_build/+/33182/
 ```sh
 . build/envsetup.sh
 export ALLOW_MISSING_DEPENDENCIES=true
-export LC_ALL=C
-lunch omni_river-eng
-mka adbd recoveryimage
+lunch omni_fp3-eng
+mka recoveryimage
 ```
 ### Copyright
  ```
