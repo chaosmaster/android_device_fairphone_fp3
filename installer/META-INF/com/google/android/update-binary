@@ -32,7 +32,9 @@ extract() {
 }
 
 print "#########################################"
-print "#  TWRP installer for Moto G7 (river)   #"
+print "#   TWRP installer for Fairphone FP3    #"
+print "#             by @k4y0z                 #"
+print "#  based on TWRP installer for Moto G7  #"
 print "#            by @SyberHexen             #"
 print "#########################################"
 print
