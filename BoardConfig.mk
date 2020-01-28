@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/fairphone/fp3
+DEVICE_PATH := device/fairphone/FP3
 
 # Architecture
 TARGET_ARCH := arm64
@@ -86,4 +86,4 @@ TARGET_USES_LOGD := true
 # Installer
 AB_OTA_UPDATER := true
 USE_RECOVERY_INSTALLER := true
-RECOVERY_INSTALLER_PATH := device/fairphone/fp3/installer
+RECOVERY_INSTALLER_PATH := device/fairphone/FP3/installer

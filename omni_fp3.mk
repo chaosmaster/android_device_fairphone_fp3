@@ -71,7 +71,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.filenames_mode=aes-256-cts
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := fp3
+PRODUCT_DEVICE := FP3
 PRODUCT_NAME := omni_fp3
 PRODUCT_BRAND := Fairphone
 PRODUCT_MODEL := FP3
