@@ -36,6 +36,7 @@ https://gerrit.omnirom.org/#/c/android_build/+/33182/
 ```sh
 . build/envsetup.sh
 export ALLOW_MISSING_DEPENDENCIES=true
+export DTC_EXT=$PWD/prebuilts/misc/linux-x86/dtc/dtc
 lunch omni_fp3-eng
 mka recoveryimage
 ```
