@@ -37,7 +37,8 @@ AB_OTA_POSTINSTALL_CONFIG += \
 PRODUCT_PACKAGES += \
     otapreopt_script \
     update_engine \
-    update_verifier
+    update_verifier \
+    update_engine_sideload
 
 # The following modules are included in debuggable builds only.
 PRODUCT_PACKAGES_DEBUG += \
