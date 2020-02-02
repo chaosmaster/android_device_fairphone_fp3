@@ -1,11 +1,11 @@
 # mount point    fstype  device                                  device2                 flags
 /boot            emmc    /dev/block/bootdevice/by-name/boot                              flags=slotselect
-/dtbo            emmc    /dev/block/bootdevice/by-name/dtbo                              flags=slotselect;backup=1
-/system_root     ext4    /dev/block/bootdevice/by-name/system                            flags=slotselect
+/dtbo            emmc    /dev/block/bootdevice/by-name/dtbo                              flags=slotselect;backup=1;flashimg;display="DTBO"
+/system_root     ext4    /dev/block/bootdevice/by-name/system                            flags=fsflags=ro;slotselect;backup=0
 /system_image    emmc    /dev/block/bootdevice/by-name/system                            flags=slotselect
-/vendor          ext4    /dev/block/bootdevice/by-name/vendor                            flags=slotselect
+/vendor          ext4    /dev/block/bootdevice/by-name/vendor                            flags=fsflags=ro;slotselect
 /vendor_image    emmc    /dev/block/bootdevice/by-name/vendor                            flags=slotselect
-#/product         ext4    /dev/block/bootdevice/by-name/product                           flags=slotselect;display="Product"
+/product         ext4    /dev/block/bootdevice/by-name/product                           flags=fsflags=ro;slotselect;display="Product"
 /product_image   emmc    /dev/block/bootdevice/by-name/product                           flags=slotselect;backup=1;display="Product Image"
 /data            ext4    /dev/block/bootdevice/by-name/userdata                          flags=fileencryption=aes-256-xts:aes-256-cts
 /efs1            emmc    /dev/block/bootdevice/by-name/modemst1                          flags=backup=1;display="EFS"
@@ -17,6 +17,19 @@
 /frp             emmc    /dev/block/bootdevice/by-name/config
 /misc            emmc    /dev/block/bootdevice/by-name/misc
 /persist         ext4    /dev/block/bootdevice/by-name/persist
+
+# Needed for flashing full stock images
+/aboot           emmc    /dev/block/bootdevice/by-name/aboot                             flags=slotselect
+/cmnlib64        emmc    /dev/block/bootdevice/by-name/cmnlib64                          flags=slotselect
+/cmnlib          emmc    /dev/block/bootdevice/by-name/cmnlib                            flags=slotselect
+/devcfg          emmc    /dev/block/bootdevice/by-name/devcfg                            flags=slotselect
+/keymaster       emmc    /dev/block/bootdevice/by-name/keymaster                         flags=slotselect
+/lksecapp        emmc    /dev/block/bootdevice/by-name/lksecapp                          flags=slotselect
+/mdtp            emmc    /dev/block/bootdevice/by-name/mdtp                              flags=slotselect
+/rpm             emmc    /dev/block/bootdevice/by-name/rpm                               flags=slotselect
+/sbl1            emmc    /dev/block/bootdevice/by-name/sbl1                              flags=slotselect
+/tz              emmc    /dev/block/bootdevice/by-name/tz                                flags=slotselect
+/vbmeta          emmc    /dev/block/bootdevice/by-name/vbmeta                            flags=slotselect
 
 # Removable storage
 /external_sd     auto   /dev/block/mmcblk1p1                     /dev/block/mmcblk1      flags=storage;wipeingui;removable
