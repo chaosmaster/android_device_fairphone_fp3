@@ -79,6 +79,7 @@ TW_NEW_ION_HEAP := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_THEME := portrait_hdpi
 TW_USE_TOOLBOX := true
+TW_OVERRIDE_SYSTEM_PROPS := "ro.build.fingerprint"
 
 # Debug flags
 TWRP_INCLUDE_LOGCAT := true
