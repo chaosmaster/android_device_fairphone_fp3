@@ -21,11 +21,6 @@ Front Camera | 8 MP (f/2.0, 1/4", HDR)
 https://code.fairphone.com/projects/fairphone-3-gpl.html
 
 ### Build with TWRP installer
-For proper (SAR)-mounting of the system-partition, pick this:
-```sh
-https://gerrit.twrp.me/c/android_bootable_recovery/+/1807
-```
-
 To automatically build the twrp-installer, pick this:
 
 ```sh
