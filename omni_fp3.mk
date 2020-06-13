@@ -24,9 +24,24 @@ $(call inherit-product, vendor/omni/config/common.mk)
 AB_OTA_UPDATER := true
 
 AB_OTA_PARTITIONS += \
+    aboot \
     boot \
+    cmnlib64 \
+    cmnlib \
+    devcfg \
+    dsp \
     dtbo \
-    system
+    keymaster \
+    lksecapp \
+    mdtp \
+    modem \
+    product \
+    rpm \
+    sbl1 \
+    system \
+    tz \
+    vbmeta \
+    vendor
 
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
