@@ -82,8 +82,8 @@ TW_USE_TOOLBOX := true
 TW_OVERRIDE_SYSTEM_PROPS := "ro.build.fingerprint"
 
 # Debug flags
-TWRP_INCLUDE_LOGCAT := true
-TARGET_USES_LOGD := true
+#TWRP_INCLUDE_LOGCAT := true
+#TARGET_USES_LOGD := true
 
 # Installer
 AB_OTA_UPDATER := true
