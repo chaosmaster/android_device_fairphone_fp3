@@ -1,6 +1,7 @@
 # mount point    fstype  device                                  device2                 flags
 /boot            emmc    /dev/block/bootdevice/by-name/boot                              flags=slotselect
 /dtbo            emmc    /dev/block/bootdevice/by-name/dtbo                              flags=slotselect;backup=1;flashimg;display="DTBO"
+/vbmeta          emmc    /dev/block/bootdevice/by-name/vbmeta                            flags=slotselect;backup=1
 /system_root     ext4    /dev/block/bootdevice/by-name/system                            flags=fsflags=ro;slotselect;backup=0
 /system_image    emmc    /dev/block/bootdevice/by-name/system                            flags=slotselect
 /vendor          ext4    /dev/block/bootdevice/by-name/vendor                            flags=fsflags=ro;slotselect
@@ -29,7 +30,6 @@
 /rpm             emmc    /dev/block/bootdevice/by-name/rpm                               flags=slotselect
 /sbl1            emmc    /dev/block/bootdevice/by-name/sbl1                              flags=slotselect
 /tz              emmc    /dev/block/bootdevice/by-name/tz                                flags=slotselect
-/vbmeta          emmc    /dev/block/bootdevice/by-name/vbmeta                            flags=slotselect
 
 # Removable storage
 /external_sd     auto   /dev/block/mmcblk1p1                     /dev/block/mmcblk1      flags=storage;wipeingui;removable
