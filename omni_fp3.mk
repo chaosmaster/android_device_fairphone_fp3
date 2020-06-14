@@ -72,7 +72,7 @@ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
 
 # Time Zone data for recovery
 PRODUCT_COPY_FILES += \
-    system/timezone/output_data/iana/tzdata:recovery/root/system_root/usr/share/zoneinfo/tzdata
+    system/timezone/output_data/iana/tzdata:recovery/root/system_root/system/usr/share/zoneinfo/tzdata
 
 # Properties for decryption
 PRODUCT_PROPERTY_OVERRIDES += \
