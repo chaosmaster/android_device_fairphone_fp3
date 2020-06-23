@@ -88,7 +88,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := FP3
-PRODUCT_NAME := omni_fp3
+PRODUCT_NAME := omni_FP3
 PRODUCT_BRAND := Fairphone
 PRODUCT_MODEL := FP3
 PRODUCT_MANUFACTURER := Fairphone
