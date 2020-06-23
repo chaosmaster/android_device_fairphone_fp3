@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_fp3.mk
+    $(LOCAL_DIR)/omni_FP3.mk
