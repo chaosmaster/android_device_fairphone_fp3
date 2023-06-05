@@ -1,8 +1,0 @@
-[
-  {
-    "remote":      "github",
-    "repository":  "chaosmaster/android_kernel_fairphone_sdm632",
-    "target_path": "kernel/fairphone/sdm632",
-    "revision":    "twrp-9.0"
-  }
-]

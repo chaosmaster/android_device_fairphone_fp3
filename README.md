@@ -18,22 +18,15 @@ Rear Camera  | 12 MP (f/1.8, 1/2.55", PDAF)
 Front Camera | 8 MP (f/2.0, 1/4", HDR)
 
 ### Kernel Source
-https://code.fairphone.com/projects/fairphone-3-gpl.html
+https://code.fairphone.com/projects/fairphone-3/gpl.html
 
-### Build with TWRP installer
-To automatically build the twrp-installer, pick this:
-
-```sh
-https://gerrit.omnirom.org/#/c/android_build/+/33182/
-```
 ### How to compile
 
 ```sh
 . build/envsetup.sh
 export ALLOW_MISSING_DEPENDENCIES=true
-export DTC_EXT=$PWD/prebuilts/misc/linux-x86/dtc/dtc
-lunch omni_fp3-eng
-mka recoveryimage
+lunch twrp_FP3-eng
+mka bootimage
 ```
 ### Copyright
  ```
