@@ -62,6 +62,7 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-impl.recovery \
     bootctrl.msm8953 \
     bootctrl.msm8953.recovery
 
@@ -97,6 +98,8 @@ PRODUCT_EXTRA_RECOVERY_KEYS := device/fairphone/FP3/releasekey
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_RETROFIT_DYNAMIC_PARTITIONS := true
+
+PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := FP3
