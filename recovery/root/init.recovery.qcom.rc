@@ -39,4 +39,22 @@ on property:ro.boot.usbcontroller=*
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+    start prepfstab
     start boot-hal-1-0
+
+on property:prepfstab.disable_dynamic=true && property:crypto.ready=1
+    start disabledynamic
+
+service prepfstab /system/bin/prepfstab.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
+service disabledynamic /system/bin/disabledynamic.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
