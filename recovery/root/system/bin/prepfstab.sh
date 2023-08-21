@@ -24,4 +24,6 @@ else
     echo "prepfstab:could not detect valid boot, keeping dynamic fstab" >> /tmp/recovery.log
 fi
 
+setprop fstab.ready 1
+
 exit 0

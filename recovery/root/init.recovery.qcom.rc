@@ -42,6 +42,9 @@ on fs
     start prepfstab
     start boot-hal-1-0
 
+on property:fstab.ready=1
+    start recovery
+
 on property:prepfstab.disable_dynamic=true && property:crypto.ready=1
     start disabledynamic
 
@@ -57,4 +60,10 @@ service disabledynamic /system/bin/disabledynamic.sh
     group root
     disabled
     oneshot
+    seclabel u:r:recovery:s0
+
+service recovery /system/bin/recovery
+    socket recovery stream 422 system system
+    disabled
+    override
     seclabel u:r:recovery:s0
