@@ -29,7 +29,7 @@ import /init.recovery.qcom_decrypt.rc
 
 on init
     setprop sys.usb.configfs 1
-    #setprop prepdecrypt.setpatch true
+    setprop prepdecrypt.setpatch true
     #setprop prepdecrypt.loglevel 2
 
 on property:ro.boot.usbcontroller=*
